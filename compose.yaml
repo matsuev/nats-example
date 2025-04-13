@@ -1,0 +1,13 @@
+services:
+  # NATS
+  nats:
+    image: nats:2.11-alpine3.21
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:4222:4222
+    volumes:
+      - nats-data:/data
+      - ./config/nats/nats-server.conf:/etc/nats/nats-server.conf
+
+volumes:
+  nats-data:
